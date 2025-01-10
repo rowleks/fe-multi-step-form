@@ -1,3 +1,5 @@
+@use "./styles/variables.scss" as *;
+@use "./styles/mixins.scss" as *;
 
 * {
     margin: 0;
@@ -8,4 +10,12 @@
 body {
     font-family: "Ubuntu";
     font-size: 1rem;
+    height: 100vh;
+    background-color: $magnolia;
+
+    @include sm {
+        display: flex;
+        padding: 5rem;
+        justify-content: center;
+    }
 }

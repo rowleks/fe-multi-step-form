@@ -1,0 +1,24 @@
+@use "../../styles/variables.scss" as *;
+
+div.footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: $white;
+    padding: 1rem;
+
+    span {
+        color: $cool-gray;
+        cursor: pointer;
+    }
+
+    button {
+        padding: .8em 1.2em;
+        border-radius: 3px;
+        border: none;
+        color: $white;
+        background-color: $marine-blue;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}

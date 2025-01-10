@@ -6,7 +6,7 @@ aside.sidebar {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 250px;
+    height: 200px;
     display: flex; justify-content: center; 
     align-items: flex-start;
     padding: 2rem;
@@ -15,7 +15,6 @@ aside.sidebar {
     @include sm {
         background-image: url("/public/bg-sidebar-desktop.svg");
         height: 100%;
-        padding: 3rem 2rem;
         gap: 2rem;
         border-radius: 10px;
         flex-direction: column;
