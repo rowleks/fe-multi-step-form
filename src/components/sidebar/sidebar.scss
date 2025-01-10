@@ -1,0 +1,61 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+aside.sidebar {
+    background-image: url("/public/bg-sidebar-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px;
+    display: flex; justify-content: center; 
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1rem;
+
+    @include sm {
+        background-image: url("/public/bg-sidebar-desktop.svg");
+        height: 100%;
+        padding: 3rem 2rem;
+        gap: 2rem;
+        border-radius: 10px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    div.step {
+        display: flex; align-items: center;
+        gap: 1rem;
+
+        >span {
+            border: 1px solid $white;
+            border-radius: 50%;
+            text-align: center;
+            padding: .5rem .8rem;
+            color: $white;
+
+            &.active {
+                color: $marine-blue;
+                background-color: $light-blue;
+            }
+        }
+
+        div.step-info {
+            display: none;
+
+            @include sm {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            small {
+                color: $pastel-blue;
+            }
+
+            span {
+                color: $alabaster;
+                font-weight: 500;
+            }
+        }
+    }
+
+}

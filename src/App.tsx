@@ -1,12 +1,16 @@
 import './App.scss'
+import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
 
   return (
-    <>
+  <main>
+    <section className='left'>
+      <Sidebar />
+    </section>
 
-    <h1>App</h1>
-    </>
+    <section className='right'>Right</section>
+  </main>
   )
 }
 
