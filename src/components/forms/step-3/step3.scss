@@ -9,6 +9,7 @@ form.form3 {
         gap: 1rem; border-radius: 10px;
         outline: 1px solid $light-gray;
         padding: 1.2rem 1rem;
+        cursor: pointer;
 
         &:has(input:checked) {
             outline: 2px solid $purplish-blue;

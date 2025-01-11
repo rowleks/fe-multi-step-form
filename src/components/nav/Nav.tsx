@@ -1,10 +1,15 @@
 import "./nav.scss";
 
-function Nav({ first = false }: { first?:boolean }) {
+
+interface NavProps {
+  first?: boolean
+  last?: boolean
+}
+function Nav({ first = false, last = false }: NavProps) {
   return (
     <nav className="nav">
         <span className={first ? 'hide' : ''}>Go Back</span>
-        <button>Next Step</button>
+        <button>{last ? 'Confirm' : 'Next Step'}</button>
       
     </nav>
   )

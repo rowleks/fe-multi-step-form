@@ -14,7 +14,7 @@ body {
     background-color: $magnolia;
 
     @include sm {
-        display: flex;
+        display: flex; align-items: center;
         padding: 5rem;
         justify-content: center;
         height: 100%;
