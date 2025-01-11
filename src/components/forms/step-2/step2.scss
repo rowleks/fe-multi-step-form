@@ -1,0 +1,100 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
+section.step {
+    form.form2 {
+        display: flex; flex-direction: column; gap: 1rem;
+        width: 100%; height: 100%;
+
+        label:not(.switch) {
+            outline: 1px solid $light-gray; border-radius: 10px;
+            padding: 1.2rem 1rem;
+            display: flex; align-items: center; gap: 1rem;
+            cursor: pointer;
+
+            img {
+                object-fit: cover;
+            }
+        
+            input[type="radio"] {
+                display: none;
+            }
+
+            &:has(input[type="radio"]:checked) {
+                outline: 2px solid $purplish-blue;
+                background-color: $alabaster;
+            }
+
+            div {
+                display: flex; flex-direction: column;
+                gap: .3rem;
+
+                h4 { color: $marine-blue; font-weight: 500; }
+                small { color: $cool-gray; }
+
+            }
+            
+        }
+
+        .toggle-div {
+            display: flex; align-items: center;
+            padding: 1rem; gap: 1.5rem;
+            border-radius: 10px; justify-content: center;
+            background-color: $alabaster;
+            margin-top: .8rem;
+
+            span {
+                color: $cool-gray; font-weight: 600;
+
+                &.monthly {
+                    order: 1;
+                    color: $marine-blue;
+                }
+                &.yearly {
+                    order: 3;
+                }
+                
+            }
+
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 50px; height: 25px;
+                order: 2;
+
+                &:has(input:checked) ~ .yearly {
+                    color: $marine-blue;
+                }
+                &:has(input:checked) ~ .monthly {
+                    color: $cool-gray;
+                }
+
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                .slider {
+                    position: absolute; inset: 0;
+                    cursor: pointer; 
+                    width: 45px; height: 25px;
+                    background-color: $marine-blue;
+                    border-radius: 50px; transition: 0.4s;
+
+                    &::before {
+                        position: absolute; content: "";
+                        height: 12px; width: 12px;
+                        left: 5px; top: 6px;
+                        background-color: $white;
+                        border-radius: 50%; transition: 0.4s;
+                }
+                }
+
+                input:checked + .slider {
+                    &::before {
+                        transform: translateX(23px);
+                    }
+                }
+            }
+        }
+    }
+}

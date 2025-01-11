@@ -18,6 +18,26 @@ main {
 
     }
 
+    section.step {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: $white;
+        padding: 2rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px 0 $light-gray;
+        position: relative;
+        top: -6.2rem;
+    
+        @include sm {
+            position: static;
+            box-shadow: none;
+            padding-inline: 1rem;
+        }
+    }
+
+    
+
     .right {
 
         display: flex; flex-direction: column;

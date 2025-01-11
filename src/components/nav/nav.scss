@@ -1,6 +1,6 @@
 @use "../../styles/variables.scss" as *;
 
-div.footer {
+nav.nav {
     display: flex; align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -9,14 +9,16 @@ div.footer {
 
     span {
         color: $cool-gray;
-        cursor: pointer;
+        cursor: pointer; font-weight: 500;
+
+        &:hover { color: $marine-blue;}
     }
 
     button {
         padding: .8em 1.2em;
         border-radius: 3px;
         border: none;
-        color: $white;
+        color: $alabaster;
         background-color: $marine-blue;
         font-weight: 600;
         cursor: pointer;

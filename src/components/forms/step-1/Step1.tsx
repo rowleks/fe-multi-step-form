@@ -8,10 +8,10 @@ function Step1() {
   const p = "Please provide your name, email address and phone number";
 
   return (
-    <section className="step-1">
+    <section className="step">
       <Heading heading={h2} text={p} />
 
-      <form id="form">
+      <form id="form" className="form1">
         <label htmlFor="user-name">
           <div>Name</div>
           <input type="text" id="user-name" name="user-name" autoComplete="off" placeholder="e.g. Stephen King" />
