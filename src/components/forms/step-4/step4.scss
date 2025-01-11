@@ -1,0 +1,44 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
+section.step {
+
+    div.checkout-container {
+        display: flex; flex-direction: column;
+        gap: .8rem; margin-block: .5rem;
+        background-color: $alabaster; border-radius: 5px;
+        padding: 1.2rem 1rem;
+
+        
+        
+        hr { border: 1px solid $light-gray; opacity: .4;}
+        span { color: $cool-gray;}
+    
+        .plan {
+            display: flex; align-items: center; 
+            justify-content: space-between;
+            div {
+                display: flex; flex-direction: column;
+                gap: .2rem;
+                h4 {color: $marine-blue; font-weight: 600;}
+                span { text-decoration: underline; cursor: pointer;}
+            }
+            h5 { color: $marine-blue; font-size: 700;}
+        }
+
+        .add-ons {
+            display: flex; align-items: center;
+            justify-content: space-between;
+            h5 { color: $marine-blue; font-weight: 400;}
+        }
+    
+    }
+
+    .total {
+        display: flex; align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        span { color: $cool-gray;}
+        h4 {color: $purplish-blue;}
+    }
+}

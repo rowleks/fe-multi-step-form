@@ -9,7 +9,7 @@ function Nav({ first = false, last = false }: NavProps) {
   return (
     <nav className="nav">
         <span className={first ? 'hide' : ''}>Go Back</span>
-        <button>{last ? 'Confirm' : 'Next Step'}</button>
+        <button className={last ? 'last': ''}>{last ? 'Confirm' : 'Next Step'}</button>
       
     </nav>
   )

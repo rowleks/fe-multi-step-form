@@ -1,0 +1,18 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
+section.success {
+    justify-content: center;
+    div.success-container {
+        display: flex; flex-direction: column;
+        gap: 1.2rem; align-items: center;
+        padding-block: 4rem;
+
+        @include sm {
+            padding-block: unset;
+        }
+
+        h2 { color: $marine-blue;}
+        p { color: $cool-gray; text-align: center;}
+    }
+}

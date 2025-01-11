@@ -24,5 +24,7 @@ nav.nav {
         background-color: $marine-blue;
         font-weight: 600;
         cursor: pointer;
+
+        &.last { background-color: $purplish-blue}
     }
 }
