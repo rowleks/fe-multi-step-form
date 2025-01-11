@@ -13,7 +13,7 @@ function Sidebar() {
       </div>
 
       <div className="step">
-        <span className="active">2</span>
+        <span className="">2</span>
         <div className="step-info">
           <small>STEP 2</small>
           <span>SELECT PLAN</span>
@@ -21,7 +21,7 @@ function Sidebar() {
 
       </div>
       <div className="step">
-        <span>3</span>
+        <span className="active">3</span>
         <div className="step-info">
           <small>STEP 3</small>
           <span>ADD-ONS</span>

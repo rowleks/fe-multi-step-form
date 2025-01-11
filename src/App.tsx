@@ -1,6 +1,7 @@
 import './App.scss'
 // import Step1 from './components/forms/step-1/Step1'
-import Step2 from './components/forms/step-2/Step2'
+// import Step2 from './components/forms/step-2/Step2'
+import Step3 from './components/forms/step-3/Step3'
 import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     </section>
 
     <section className='right'>
-      <Step2 />
+     <Step3 />
     </section>
 
   </main>
