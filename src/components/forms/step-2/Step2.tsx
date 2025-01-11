@@ -1,11 +1,21 @@
+import { useState } from "react";
 import Heading from "../heading/Heading";
 import "./step2.scss";
+import Nav from "../../nav/Nav";
 
 function Step2() {
+  const [checkbox, setCheckbox] = useState(false)
+  const handleCheckbox = () => {
+    setCheckbox(!checkbox)
+  }
 
   const h2 = "Select your plan";
   const p = "You have the option of monthly or yearly billing.";
   return (
+    <div className="steps-container">
+
+    <div className="form-container">
+
     <section className="step">
       <Heading heading={h2} text={p}/>
 
@@ -16,7 +26,8 @@ function Step2() {
             <img src="/icon-arcade.svg" alt="arcade" />
             <div>
               <h4>Arcade</h4>
-              <small>$9/mo</small>
+              <small>{checkbox ? '$90/yr' : '$9/mo'}</small>
+              {checkbox && <h5>2 months free</h5>}
             </div>
         </label>
 
@@ -25,7 +36,8 @@ function Step2() {
             <img src="/icon-advanced.svg" alt="arcade" />
             <div>
               <h4>Advanced</h4>
-              <small>$12/mo</small>
+              <small>{checkbox ? '$120/yr' : '$12/mo'}</small>
+              {checkbox && <h5>2 months free</h5>}
             </div>
         </label>
 
@@ -34,13 +46,17 @@ function Step2() {
             <img src="/icon-pro.svg" alt="arcade" />
             <div>
               <h4>Pro</h4>
-              <small>$15/mo</small>
+              <small>{checkbox ? '$150/yr' : '$15/mo'}</small>
+              {checkbox && <h5>2 months free</h5>}
             </div>
         </label>
 
         <div className="toggle-div">
           <label className="switch" htmlFor="toggle">
-            <input type="checkbox" name="switch" id="toggle" />
+            <input 
+            type="checkbox" checked={checkbox}
+            name="switch" onChange={handleCheckbox}
+            id="toggle" />
             <span className="slider"></span>
           </label>
           <span className="monthly">Monthly</span>
@@ -50,6 +66,13 @@ function Step2() {
       </form>
 
     </section>
+      </div>
+
+    <div> <Nav/> </div>
+
+
+
+    </div>
   )
 }
 

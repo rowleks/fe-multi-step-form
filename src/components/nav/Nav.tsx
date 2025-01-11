@@ -1,9 +1,9 @@
 import "./nav.scss";
 
-function Nav() {
+function Nav({ first = false }: { first?:boolean }) {
   return (
     <nav className="nav">
-        <span>Go Back</span>
+        <span className={first ? 'hide' : ''}>Go Back</span>
         <button>Next Step</button>
       
     </nav>

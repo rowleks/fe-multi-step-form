@@ -18,6 +18,13 @@ main {
 
     }
 
+    div.form-container {
+        padding: 1rem;
+
+        @include sm { padding: 0;}
+    }
+
+
     section.step {
         display: flex;
         flex-direction: column;
@@ -47,15 +54,7 @@ main {
         @include sm {
             padding: 0rem 3rem;
         }
-        
 
-        .form {
-            padding: 1rem;
-
-            @include sm {
-                padding: 0;
-            }
-        }
 
 
     }
