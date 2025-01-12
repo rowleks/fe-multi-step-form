@@ -7,7 +7,28 @@ section.step {
         width: 100%; height: 100%;
 
         label {
-            color: $marine-blue
+            color: $marine-blue;
+
+            div {
+                display: flex; align-items: center;
+                justify-content: space-between;
+
+                span:nth-child(2) {
+                    visibility: hidden;
+                    font-size: .9rem;
+                    font-weight: 500;
+                    color: $strawberry-red;
+
+                    &.show { visibility: visible;}
+                }
+
+                &:has(.show) + input {
+                    outline: 1px solid $strawberry-red;
+
+                    &:focus { outline: 2px solid $strawberry-red;}
+                }
+            }
+
         }
 
         input {
@@ -17,15 +38,23 @@ section.step {
             color: $marine-blue;
             font-weight: 600;
             font-size: 1rem;
+            outline: 1px solid $light-gray;
+            border: none;
+            border-radius: 5px;
 
             &:focus {
-                outline: .1px solid $purplish-blue;
+                outline: 2px solid $purplish-blue;
             }
 
             &::placeholder {
                 font-weight: 600;
                 color: $cool-gray
             }
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
         }
     }
 

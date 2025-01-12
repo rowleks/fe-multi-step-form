@@ -5,7 +5,7 @@ function Sidebar() {
     <aside className="sidebar" >
 
       <div className="step">
-        <span className="">1</span>
+        <span className="active">1</span>
         <div className="step-info">
           <small>STEP 1</small>
           <span>YOUR INFO</span>
@@ -29,7 +29,7 @@ function Sidebar() {
       </div>
 
       <div className="step">
-        <span className="active">4</span>
+        <span className="">4</span>
         <div className="step-info">
           <small>STEP 4</small>
           <span>SUMMARY</span>

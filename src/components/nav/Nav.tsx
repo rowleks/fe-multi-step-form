@@ -2,14 +2,19 @@ import "./nav.scss";
 
 
 interface NavProps {
-  first?: boolean
-  last?: boolean
+  first?: boolean;
+  last?: boolean;
+  next?: () => void
 }
-function Nav({ first = false, last = false }: NavProps) {
+function Nav({ first = false, last = false, next }: NavProps) {
+
+  const handleClick = () => {
+    if (next) { next()}
+  }
   return (
     <nav className="nav">
         <span className={first ? 'hide' : ''}>Go Back</span>
-        <button className={last ? 'last': ''}>{last ? 'Confirm' : 'Next Step'}</button>
+        <button onClick={handleClick} className={last ? 'last': ''}>{last ? 'Confirm' : 'Next Step'}</button>
       
     </nav>
   )
