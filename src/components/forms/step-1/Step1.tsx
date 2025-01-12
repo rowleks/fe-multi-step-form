@@ -36,7 +36,7 @@ function Step1({nextStep}: Step1Props) {
   
   const handleError = () => {
     const emailRegex = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.(com|net|org|co|us)$/;
-    const numberRegex = /^\d{3}[-.\s]?\d{4}[-.\s]?\d{4}$/
+    const numberRegex = /^\d{3,}[-.\s]?\d{4}[-.\s]?\d{4}$/
     const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)?$/
 
     const validEmail = emailRegex.test(formData.useremail)
