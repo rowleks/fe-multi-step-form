@@ -2,10 +2,23 @@ import Heading from "../heading/Heading";
 import "./step4.scss"
 import Nav from "../../nav/Nav";
 
-function Step4() {
+interface Step4Props {
+    nextStep?: () => void
+    prevStep?: () => void
+  }
+
+function Step4({nextStep, prevStep}:Step4Props) {
 
     const h2 = "Finishing up";
     const p = "Double-check everything looks OK before confirming.";
+
+    const handleNext = () => {
+        if(nextStep) { nextStep()}
+      }
+    
+      const handlePrev = () => {
+        if(prevStep) { prevStep()}
+      }
     return (
         <div className="steps-container">
 
@@ -43,7 +56,7 @@ function Step4() {
             </section>
         </div>
 
-        <div> <Nav last={true}/> </div>
+        <div> <Nav next={handleNext} prev={handlePrev}/> </div>
 
     </div>
     )

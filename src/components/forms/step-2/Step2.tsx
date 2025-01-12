@@ -3,7 +3,12 @@ import Heading from "../heading/Heading";
 import "./step2.scss";
 import Nav from "../../nav/Nav";
 
-function Step2() {
+interface Step2Props {
+  nextStep?: () => void
+  prevStep?: () => void
+}
+
+function Step2( {nextStep, prevStep}:Step2Props) {
   const [checkbox, setCheckbox] = useState(false)
   const handleCheckbox = () => {
     setCheckbox(!checkbox)
@@ -11,6 +16,14 @@ function Step2() {
 
   const h2 = "Select your plan";
   const p = "You have the option of monthly or yearly billing.";
+
+  const handleNext = () => {
+    if(nextStep) { nextStep()}
+  }
+
+  const handlePrev = () => {
+    if(prevStep) { prevStep()}
+  }
   return (
     <div className="steps-container">
 
@@ -68,7 +81,7 @@ function Step2() {
     </section>
       </div>
 
-    <div> <Nav/> </div>
+    <div> <Nav next={handleNext} prev={handlePrev}/> </div>
 
 
 

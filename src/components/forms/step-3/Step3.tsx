@@ -3,10 +3,23 @@ import Heading from "../heading/Heading";
 import "./step3.scss";
 import Nav from "../../nav/Nav";
 
-function Step3() {
+interface Step3Props {
+    nextStep?: () => void
+    prevStep?: () => void
+  }
+
+function Step3({nextStep, prevStep}:Step3Props) {
 
 const h2 = "Pick add-ons";
 const p = "Add-ons help enhance your gaming experience.";
+
+const handleNext = () => {
+    if(nextStep) { nextStep()}
+  }
+
+  const handlePrev = () => {
+    if(prevStep) { prevStep()}
+  }
     return (
     <div className="steps-container">
 
@@ -47,7 +60,7 @@ const p = "Add-ons help enhance your gaming experience.";
             </section>
         </div>
 
-        <div> <Nav/> </div>
+        <div> <Nav next={handleNext} prev={handlePrev}/> </div>
 
 
 

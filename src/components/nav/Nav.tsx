@@ -5,16 +5,21 @@ interface NavProps {
   first?: boolean;
   last?: boolean;
   next?: () => void
+  prev?: () => void
 }
-function Nav({ first = false, last = false, next }: NavProps) {
+function Nav({ first = false, last = false, next, prev }: NavProps) {
 
-  const handleClick = () => {
+  const handleClickNext = () => {
     if (next) { next()}
+  }
+
+  const handleClickPrev = () => {
+    if (prev) { prev()}
   }
   return (
     <nav className="nav">
-        <span className={first ? 'hide' : ''}>Go Back</span>
-        <button onClick={handleClick} className={last ? 'last': ''}>{last ? 'Confirm' : 'Next Step'}</button>
+        <span onClick={handleClickPrev} className={first ? 'hide' : ''}>Go Back</span>
+        <button onClick={handleClickNext} className={last ? 'last': ''}>{last ? 'Confirm' : 'Next Step'}</button>
       
     </nav>
   )

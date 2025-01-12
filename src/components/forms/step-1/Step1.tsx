@@ -8,10 +8,23 @@ interface Step1Props {
   nextStep?: () => void
 }
 
+interface PatternsType {
+  email: RegExp
+  number: RegExp
+  name: RegExp
+}
+
 function Step1({nextStep}: Step1Props) {
 
   const h2 = "Personal info";
   const p = "Please provide your name, email address and phone number";
+
+  const patterns:PatternsType = {
+    email: /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.(com|net|org|co|us)$/,
+    number: /^\d{3,}[-.\s]?\d{4}[-.\s]?\d{4}$/,
+    name: /^[A-Za-z]+(?: [A-Za-z]+)?$/
+  }
+
 
   const [errors, setErrors] = useState({
     email: '',
@@ -26,22 +39,45 @@ function Step1({nextStep}: Step1Props) {
   })
 
   const handleNext = () => {
-    if (nextStep) { nextStep()}
+    if (nextStep) { nextStep()  }
+    // if (handleError()) { nextStep() }
   }
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
     setFormData(prev => ({...prev, [name]: value}))
+
+
+    const validEmail = patterns.email.test(formData.useremail)
+    const validNumber = patterns.number.test(formData.number)
+    const validName = patterns.name.test(formData.username)
+
+    if (validEmail) 
+      { 
+        setErrors(prev => ({
+          ...prev, ["email"]: ''
+        }))
+      }
+
+    if (validName) 
+      { 
+        setErrors(prev => ({
+          ...prev, ["name"]: ''
+        }))
+      }
+
+    if (validNumber) 
+      { 
+        setErrors(prev => ({
+          ...prev, ["number"]: ''
+        }))
+      }
   }
   
   const handleError = () => {
-    const emailRegex = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.(com|net|org|co|us)$/;
-    const numberRegex = /^\d{3,}[-.\s]?\d{4}[-.\s]?\d{4}$/
-    const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)?$/
-
-    const validEmail = emailRegex.test(formData.useremail)
-    const validNumber = numberRegex.test(formData.number)
-    const validName = nameRegex.test(formData.username)
+    const validEmail = patterns.email.test(formData.useremail)
+    const validNumber = patterns.number.test(formData.number)
+    const validName = patterns.name.test(formData.username)
 
     if(!formData.useremail) 
     { 
@@ -112,7 +148,8 @@ function Step1({nextStep}: Step1Props) {
         }
       }
 
-      if(validName && validEmail && validNumber) { handleNext() }
+      if(validName && validEmail && validNumber) { return true }
+      return false;
 
   }
 
@@ -126,7 +163,7 @@ function Step1({nextStep}: Step1Props) {
 
           <form id="form" className="form1">
             <label htmlFor="user-name">
-              <div>
+              <div className="field">
                 <span>Name</span>
                 <span className={errors.name ? 'show' : ''}>{errors.name}</span>
               </div>
@@ -138,7 +175,7 @@ function Step1({nextStep}: Step1Props) {
             </label>
 
             <label htmlFor="user-mail">
-              <div>
+              <div className="field">
                 <span>Email</span>
                 <span className={errors.email ? 'show' : ''}>{errors.email}</span>
               </div>
@@ -152,7 +189,7 @@ function Step1({nextStep}: Step1Props) {
             </label>
 
             <label htmlFor="number">
-              <div>
+              <div className="field">
                 <span>Phone Number</span>
                 <span className={errors.number ? 'show' : ''}>{errors.number}</span>
               </div>
@@ -167,7 +204,7 @@ function Step1({nextStep}: Step1Props) {
         </section>
       </div>
 
-      <div> <Nav first={true} next={handleError}/> </div>
+      <div> <Nav first={true} next={handleNext}/> </div>
     
 
       
