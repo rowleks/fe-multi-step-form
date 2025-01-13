@@ -5,7 +5,19 @@ import Nav from "../../nav/Nav";
 import { useState } from "react";
 
 interface Step1Props {
-  nextStep?: () => void
+  nextStep?: () => void;
+
+  formData: {
+    username: string
+    useremail: string
+    number: string
+  };
+
+  setFormData: React.Dispatch<React.SetStateAction<{
+    username: string
+    useremail: string
+    number: string
+  }>>;
 }
 
 interface PatternsType {
@@ -14,7 +26,7 @@ interface PatternsType {
   name: RegExp
 }
 
-function Step1({nextStep}: Step1Props) {
+function Step1({nextStep, formData, setFormData}: Step1Props) {
 
   const h2 = "Personal info";
   const p = "Please provide your name, email address and phone number";
@@ -32,21 +44,15 @@ function Step1({nextStep}: Step1Props) {
     name: ''
   })
 
-  const [formData, setFormData] = useState({
-    username: '',
-    useremail: '',
-    number: ''
-  })
+
 
   const handleNext = () => {
-    if (nextStep) { nextStep()  }
-    // if (handleError()) { nextStep() }
+    if (nextStep) { if (handleError()) { nextStep() }  }
   }
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
     setFormData(prev => ({...prev, [name]: value}))
-
 
     const validEmail = patterns.email.test(formData.useremail)
     const validNumber = patterns.number.test(formData.number)
@@ -74,7 +80,7 @@ function Step1({nextStep}: Step1Props) {
       }
   }
   
-  const handleError = () => {
+    const handleError = () => {
     const validEmail = patterns.email.test(formData.useremail)
     const validNumber = patterns.number.test(formData.number)
     const validName = patterns.name.test(formData.username)

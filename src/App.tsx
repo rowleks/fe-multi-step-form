@@ -11,6 +11,11 @@ function App() {
 
   const [step, setStep] = useState(1)
 
+  const [formData, setFormData] = useState({
+    username: '', useremail: '', number: ''
+  })
+
+
   const nextStep = () => {
     setStep(prev => prev + 1)
   }
@@ -25,10 +30,10 @@ function App() {
     </section>
 
     <section className='right'>
-      { step === 1 &&  <Step1 nextStep={nextStep} />}
+      { step === 1 &&  <Step1 nextStep={nextStep} formData={formData} setFormData={setFormData} />}
       { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} />}
       { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep}/>}
-      { step === 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} />}
+      { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} />}
     </section>
 
   </main>
