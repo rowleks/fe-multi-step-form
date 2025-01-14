@@ -33,7 +33,7 @@ function Step1({nextStep, formData, setFormData}: Step1Props) {
 
   const patterns:PatternsType = {
     email: /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.(com|net|org|co|us)$/,
-    number: /^\d{3,}[-.\s]?\d{4}[-.\s]?\d{4}$/,
+    number: /^\d{2,}[-.\s]?\d{4}[-.\s]?\d{4}$/,
     name: /^[A-Za-z]+(?: [A-Za-z]+)?$/
   }
 
@@ -160,7 +160,6 @@ function Step1({nextStep, formData, setFormData}: Step1Props) {
   }
 
 
-
   return (
     <div className="steps-container">
       <div className="form-container">
@@ -188,7 +187,7 @@ function Step1({nextStep, formData, setFormData}: Step1Props) {
 
               <input 
               type="email" id="user-mail" 
-              name="useremail" autoComplete="new-password"
+              name="useremail" autoComplete="off"
               placeholder="e.g. stephenking@lorem.com"
               value={formData.useremail}
               onChange={handleChange}/>

@@ -2,6 +2,7 @@
 import Heading from "../heading/Heading";
 import "./step2.scss";
 import Nav from "../../nav/Nav";
+import { useState } from "react";
 
 interface Step2Props {
   nextStep?: () => void
@@ -27,6 +28,7 @@ function Step2( {nextStep, prevStep, plan, setPlan}:Step2Props) {
   const handlePlan = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target
     setPlan(prev => ({...prev, name: id, value: value }))
+    setError(false)
   }
 
   const handleCheckbox = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -37,13 +39,28 @@ function Step2( {nextStep, prevStep, plan, setPlan}:Step2Props) {
   const h2 = "Select your plan";
   const p = "You have the option of monthly or yearly billing.";
 
+  const [error, setError]  = useState(false)
+
+  const handleError = () => {
+    if (!plan.name) {
+      setError(true)
+      return false
+    } 
+    return true
+  }
+
   const handleNext = () => {
-    if(nextStep) { nextStep() }
+    if(nextStep) 
+      {
+        if (handleError()) { nextStep() }
+      }
   }
 
   const handlePrev = () => {
     if(prevStep) { prevStep() }
   }
+
+
 
   console.log(plan)
 
@@ -53,7 +70,7 @@ function Step2( {nextStep, prevStep, plan, setPlan}:Step2Props) {
     <div className="form-container">
 
     <section className="step">
-      <Heading heading={h2} text={p}/>
+      <Heading heading={h2} text={p} error={error}/>
 
       <form className="form2">
 
