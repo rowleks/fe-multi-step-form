@@ -1,18 +1,45 @@
 @use "../../../styles/variables.scss" as *;
 @use "../../../styles/mixins.scss" as *;
 
-section.success {
-    justify-content: center;
-    div.success-container {
-        display: flex; flex-direction: column;
-        gap: 1.2rem; align-items: center;
-        padding-block: 4rem;
+.steps-container {
+    
+    .last {
 
-        @include sm {
-            padding-block: unset;
+        section.success {
+            justify-content: center;
+            div.success-container {
+                display: flex; flex-direction: column;
+                gap: 1.2rem; align-items: center;
+                padding-block: 4rem;
+        
+                @include sm {
+                    padding-block: unset;
+                }
+        
+                h2 { color: $marine-blue;}
+                p { color: $cool-gray; text-align: center; width: 95%;}
+            }
         }
+    
+    }
 
-        h2 { color: $marine-blue;}
-        p { color: $cool-gray; text-align: center;}
+    nav {
+        display: flex; align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        background-color: $white;
+        padding: 1rem;
+    }
+
+    button { 
+        padding: .75em 1.3em;
+        border-radius: 4px;
+        border: none;
+        color: $alabaster;
+        background-color: $marine-blue;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover { opacity: .8;}
     }
 }

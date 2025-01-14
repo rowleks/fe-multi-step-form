@@ -27,6 +27,8 @@ main {
     div.form-container {
         padding: 1rem;
 
+        &.last { padding-bottom: 0;}
+
         @include sm { padding: 0;}
 
         section.step {

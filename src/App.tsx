@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.scss'
-// import Success from './components/forms/success/Success'
+import Success from './components/forms/success/Success'
 import Step1 from './components/forms/step-1/Step1'
 import Step2 from './components/forms/step-2/Step2'
 import Step3 from './components/forms/step-3/Step3'
@@ -50,7 +50,9 @@ function App() {
 
       { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep} checked={checkedAddOns} setChecked={setCheckedAddOns} addOns={selectedAddOns} setAddOns={setSelectedAddOns}/>}
 
-      { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} plan={plan} addOns={selectedAddOns} gotoStep={gotoStep} />}
+      { step === 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} plan={plan} addOns={selectedAddOns} gotoStep={gotoStep} />}
+
+      { step > 4 &&  <Success />}
     </section>
 
   </main>
