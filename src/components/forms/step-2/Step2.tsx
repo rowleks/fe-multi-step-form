@@ -32,7 +32,6 @@ function Step2( {nextStep, prevStep, plan, setPlan}:Step2Props) {
   }
 
   const handleCheckbox = (e:React.ChangeEvent<HTMLInputElement>) => {
-    
     setPlan(prev => ({...prev, name: '', value: '', checked:e.target.checked}))
   }
 

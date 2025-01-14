@@ -9,6 +9,8 @@ import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
 
+  //Form states
+
   const [step, setStep] = useState(1)
 
   const [formData, setFormData] = useState({
@@ -20,10 +22,9 @@ function App() {
     service: false,
     storage: false,
     profile: false
-})
+  })
 
   const [selectedAddOns, setSelectedAddOns] = useState<{ name: string, value: string }[]>([])
-
 
   const nextStep = () => {
     setStep(prev => prev + 1)
@@ -34,8 +35,6 @@ function App() {
   const gotoStep = (step:number) => {
     setStep(step)
   }
-
-  console.log(step)
 
   return (
   <main>

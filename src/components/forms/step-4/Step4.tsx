@@ -24,10 +24,6 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
 
     const timeFrame = plan.checked ? 'yr' : 'mo'
 
-    // const calculateTotal = () => {
-        
-    // }
-
     const handleNext = () => {
         if(nextStep) { nextStep()}
     }

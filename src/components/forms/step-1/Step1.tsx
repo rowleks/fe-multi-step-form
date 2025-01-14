@@ -37,14 +37,11 @@ function Step1({nextStep, formData, setFormData}: Step1Props) {
     name: /^[A-Za-z]+(?: [A-Za-z]+)?$/
   }
 
-
   const [errors, setErrors] = useState({
     email: '',
     number: '',
     name: ''
   })
-
-
 
   const handleNext = () => {
     if (nextStep) { if (handleError()) { nextStep() }  }
@@ -53,7 +50,7 @@ function Step1({nextStep, formData, setFormData}: Step1Props) {
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
     setFormData(prev => ({...prev, [name]: value}))
-
+    
     const validEmail = patterns.email.test(formData.useremail)
     const validNumber = patterns.number.test(formData.number)
     const validName = patterns.name.test(formData.username)
