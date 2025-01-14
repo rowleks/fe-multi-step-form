@@ -37,6 +37,8 @@ function App() {
   }
 
   return (
+    <>
+    
   <main>
     <section className='left'>
       <Sidebar step={step} />
@@ -52,9 +54,17 @@ function App() {
       { step === 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} plan={plan} addOns={selectedAddOns} gotoStep={gotoStep} />}
 
       { step > 4 &&  <Success />}
+  
     </section>
 
+
   </main>
+
+  <div className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://rowland-momoh.netlify.app/" target="_blank">Rowland Momoh</a>.
+    </div>
+    </>
   )
 }
 

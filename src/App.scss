@@ -62,6 +62,20 @@ main {
         }
     }
     
+}
 
-    
+.attribution { 
+    font-size: 1rem; 
+    text-align: center;
+    padding: 1rem 0;
+    color: $cool-gray;
+    background-color: $white;
+
+    @include sm {
+        background-color: transparent;
+    }
+ }
+
+.attribution a { 
+    color: $purplish-blue;
 }

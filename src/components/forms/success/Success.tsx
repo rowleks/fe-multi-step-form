@@ -11,7 +11,7 @@ function Success() {
             <div className="success-container">
                 <img src="/icon-thank-you.svg" alt="checkmark" width="60px" />
                 <h2>Thank you!</h2>
-                <p>Thanks for confirming your subscription! We hope you have fun using our platform. if you ever need support, please feel free to email us at support@loremgaming.com</p>
+                <p>Thanks for confirming your subscription! We hope you have fun using our platform. if you ever need support, please feel free to email us at support@rolexgaming.com</p>
 
             </div>
         </section>
