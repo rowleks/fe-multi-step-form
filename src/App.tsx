@@ -14,6 +14,7 @@ function App() {
   const [formData, setFormData] = useState({
     username: '', useremail: '', number: ''
   })
+  const [plan, setPlan] = useState({name: '', value: '', checked: false})
 
 
   const nextStep = () => {
@@ -31,7 +32,7 @@ function App() {
 
     <section className='right'>
       { step === 1 &&  <Step1 nextStep={nextStep} formData={formData} setFormData={setFormData} />}
-      { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} />}
+      { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} plan={plan} setPlan={setPlan} />}
       { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep}/>}
       { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} />}
     </section>
