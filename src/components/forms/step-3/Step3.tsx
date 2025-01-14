@@ -19,11 +19,12 @@ interface Step3Props {
         profile: boolean
     }>>
 
-    addOns: { name: string, value: string }[]
+    addOns?: { name: string, value: string }[]
+
     setAddOns: React.Dispatch<React.SetStateAction<{ name: string, value: string }[]>>
   }
 
-function Step3({nextStep, prevStep, checked, setChecked, addOns, setAddOns }:Step3Props) {
+function Step3({nextStep, prevStep, checked, setChecked, setAddOns }:Step3Props) {
 
 const h2 = "Pick add-ons";
 const p = "Add-ons help enhance your gaming experience.";
@@ -57,7 +58,6 @@ const handleNext = () => {
     if(prevStep) { prevStep()}
   }
 
-  console.log(addOns)
     return (
     <div className="steps-container">
 

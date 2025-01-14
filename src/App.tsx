@@ -31,6 +31,9 @@ function App() {
   const prevStep = () => {
     setStep(prev => prev - 1)
   }
+  const gotoStep = (step:number) => {
+    setStep(step)
+  }
 
   console.log(step)
 
@@ -46,8 +49,8 @@ function App() {
       { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} plan={plan} setPlan={setPlan} />}
 
       { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep} checked={checkedAddOns} setChecked={setCheckedAddOns} addOns={selectedAddOns} setAddOns={setSelectedAddOns}/>}
-      
-      { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} />}
+
+      { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} plan={plan} addOns={selectedAddOns} gotoStep={gotoStep} />}
     </section>
 
   </main>

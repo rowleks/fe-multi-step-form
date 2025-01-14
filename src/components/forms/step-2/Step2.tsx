@@ -60,10 +60,6 @@ function Step2( {nextStep, prevStep, plan, setPlan}:Step2Props) {
     if(prevStep) { prevStep() }
   }
 
-
-
-  console.log(plan)
-
   return (
     <div className="steps-container">
 

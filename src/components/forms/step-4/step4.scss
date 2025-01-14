@@ -20,7 +20,16 @@ section.step {
             div {
                 display: flex; flex-direction: column;
                 gap: .2rem;
-                h4 {color: $marine-blue; font-weight: 600;}
+                h4 {
+                    color: $marine-blue; font-weight: 600;
+                    text-transform: capitalize;
+                    span {
+                        color: inherit;
+                        font-size: inherit;
+                        font-weight: inherit;
+                        text-decoration: inherit;
+                    }
+                }
                 span { text-decoration: underline; cursor: pointer;}
             }
             h5 { color: $marine-blue; font-size: 700;}
