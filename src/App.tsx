@@ -16,6 +16,14 @@ function App() {
   })
   const [plan, setPlan] = useState({name: '', value: '', checked: false})
 
+  const [checkedAddOns, setCheckedAddOns] = useState({
+    service: false,
+    storage: false,
+    profile: false
+})
+
+  const [selectedAddOns, setSelectedAddOns] = useState<{ name: string, value: string }[]>([])
+
 
   const nextStep = () => {
     setStep(prev => prev + 1)
@@ -34,8 +42,11 @@ function App() {
 
     <section className='right'>
       { step === 1 &&  <Step1 nextStep={nextStep} formData={formData} setFormData={setFormData} />}
+
       { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} plan={plan} setPlan={setPlan} />}
-      { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep}/>}
+
+      { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep} checked={checkedAddOns} setChecked={setCheckedAddOns} addOns={selectedAddOns} setAddOns={setSelectedAddOns}/>}
+      
       { step >= 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} />}
     </section>
 
