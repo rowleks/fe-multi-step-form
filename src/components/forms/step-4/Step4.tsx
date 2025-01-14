@@ -39,7 +39,7 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
         }, 0)
         
         const grandTotal = plan.checked 
-          ? (planCost + (addOnsCost * 12)) 
+          ? (planCost + (addOnsCost * 10)) 
             : (planCost + addOnsCost);
 
         return grandTotal.toFixed();
@@ -70,7 +70,7 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
                     addOns.length > 0 ? addOns.map((addOn, index) => (
                         <div key={index} className="add-ons">
                             <span>{addOn.name}</span>
-                            <h5>{`+$${addOn.value}/mo`}</h5>
+                            <h5>{plan.checked ? `+$${parseInt(addOn.value) * 10}/yr` : `$${addOn.value}/mo`}</h5>
                         </div>
                     )) : null
                     }

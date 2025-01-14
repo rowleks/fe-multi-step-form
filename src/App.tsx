@@ -47,7 +47,7 @@ function App() {
 
       { step === 2 &&  <Step2 nextStep={nextStep} prevStep={prevStep} plan={plan} setPlan={setPlan} />}
 
-      { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep} checked={checkedAddOns} setChecked={setCheckedAddOns} addOns={selectedAddOns} setAddOns={setSelectedAddOns}/>}
+      { step === 3 &&  <Step3 nextStep={nextStep} prevStep={prevStep} checked={checkedAddOns} setChecked={setCheckedAddOns} setAddOns={setSelectedAddOns} plan={plan}/>}
 
       { step === 4 &&  <Step4 nextStep={nextStep} prevStep={prevStep} plan={plan} addOns={selectedAddOns} gotoStep={gotoStep} />}
 

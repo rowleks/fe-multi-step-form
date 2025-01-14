@@ -9,6 +9,7 @@ section.step {
         label {
             color: $marine-blue;
 
+
             div {
                 display: flex; align-items: center;
                 justify-content: space-between;
@@ -41,6 +42,10 @@ section.step {
             outline: 1px solid $light-gray;
             border: none;
             border-radius: 5px;
+
+            &:hover {
+                outline: 1px solid $purplish-blue;
+            }
             
             &:focus {
                 outline: 2px solid $purplish-blue;

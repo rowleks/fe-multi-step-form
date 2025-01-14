@@ -11,6 +11,10 @@ form.form3 {
         padding: 1.2rem 1rem;
         cursor: pointer;
 
+        &:hover {
+            outline: 1px solid $purplish-blue;
+        }
+
         &:has(input:checked) {
             outline: 2px solid $purplish-blue;
             background-color: $alabaster;
