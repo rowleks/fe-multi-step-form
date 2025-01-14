@@ -23,14 +23,11 @@ section.step {
                 h4 {
                     color: $marine-blue; font-weight: 600;
                     text-transform: capitalize;
-                    span {
-                        color: inherit;
-                        font-size: inherit;
-                        font-weight: inherit;
-                        text-decoration: inherit;
-                    }
                 }
-                span { text-decoration: underline; cursor: pointer;}
+                span { 
+                    text-decoration: underline; cursor: pointer;
+                    &:hover { color: $purplish-blue;}
+                }
             }
             h5 { color: $marine-blue; font-size: 700;}
         }

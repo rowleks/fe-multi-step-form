@@ -1,7 +1,6 @@
 import Heading from "../heading/Heading";
 import "./step4.scss"
 import Nav from "../../nav/Nav";
-import { useRef } from "react";
 
 interface Step4Props {
     nextStep?: () => void
@@ -23,8 +22,6 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
     const h2 = "Finishing up";
     const p = "Double-check everything looks OK before confirming.";
 
-    const valRef = useRef(null)
-
     const timeFrame = plan.checked ? 'yr' : 'mo'
 
     // const calculateTotal = () => {
@@ -33,13 +30,27 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
 
     const handleNext = () => {
         if(nextStep) { nextStep()}
-      }
+    }
     
-      const handlePrev = () => {
-        if(prevStep) { prevStep()}
-      }
+    const handlePrev = () => {
+    if(prevStep) { prevStep()}
+    }
 
-      console.log(valRef.current)
+    const calculateTotal = () => {
+        const planCost = parseFloat(plan.value);
+        const addOnsCost = addOns.reduce((total, addOn) => {
+            return total + parseFloat(addOn.value);
+        }, 0)
+        
+        const grandTotal = plan.checked 
+          ? (planCost + (addOnsCost * 12)) 
+            : (planCost + addOnsCost);
+
+        return grandTotal.toFixed();
+    }
+
+    
+
     return (
         <div className="steps-container">
 
@@ -48,10 +59,10 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
             <section className="step">
                 <Heading heading={h2} text={p}/>
 
-                <div className="checkout-container" ref={valRef}>
+                <div className="checkout-container">
                     <div className="plan">
                         <div>
-                            <h4>{plan.name} <span>{plan.checked ? '(yearly)' : '(monthly)'}</span></h4>
+                            <h4>{plan.name} {plan.checked ? '(yearly)' : '(monthly)'}</h4>
                             <span onClick={() => gotoStep(2)}>Change</span>
                         </div>
                         <h5>{`$${plan.value}/${timeFrame}`}</h5>
@@ -63,21 +74,21 @@ function Step4({nextStep, prevStep, plan, addOns, gotoStep}:Step4Props) {
                     addOns.length > 0 ? addOns.map((addOn, index) => (
                         <div key={index} className="add-ons">
                             <span>{addOn.name}</span>
-                            <h5>{`$${addOn.value}/mo`}</h5>
+                            <h5>{`+$${addOn.value}/mo`}</h5>
                         </div>
                     )) : null
                     }
                 </div>
 
                 <div className="total">
-                    <span>Total (per month)</span>
-                    <h4>$12/mo</h4>
+                    <span>Total {plan.checked ? '(per year)' : '(per month)'}</span>
+                    <h4>{`+$${calculateTotal()}/${timeFrame}`}</h4>
                 </div>
 
             </section>
         </div>
 
-        <div> <Nav next={handleNext} prev={handlePrev}/> </div>
+        <div> <Nav next={handleNext} prev={handlePrev} last/> </div>
 
     </div>
     )
