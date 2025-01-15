@@ -65,14 +65,13 @@ main {
 }
 
 .attribution { 
-    font-size: 1rem; 
+    font-size: .85rem; 
     text-align: center;
-    padding: 1rem 0;
+    padding: .1rem 0;
     color: $cool-gray;
-    background-color: $white;
 
     @include sm {
-        background-color: transparent;
+        padding: 1rem 0;
     }
  }
 

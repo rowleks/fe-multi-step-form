@@ -9,8 +9,6 @@ import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
 
-  //Form states
-
   const [step, setStep] = useState(1)
 
   const [formData, setFormData] = useState({
